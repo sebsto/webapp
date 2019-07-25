@@ -5,9 +5,17 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'make' (1)
-                archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true (2)
+                archiveArtifacts artifacts: '**/target/*.war', fingerprint: true (2)
             }
         }
-        
+      stage('Deploy') {
+            when {
+              expression {
+                currentBuild.result == null || currentBuild.result == 'SUCCESS' (1)
+              }
+            }
+            steps {
+                sh 'make publish'
+            }   
     }
 }
