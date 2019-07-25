@@ -4,19 +4,15 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'make' (1)
-                archiveArtifacts artifacts: '**/target/*.war', fingerprint: true (2)
+                sh 'mvn clean package' 
+                }
+                post {
+                  success
+                  {
+                    echo 'Now Archiving...'
+                          archiveArtifacts artifacts: '**/target/*.war'
+                }
             }
         }
-      stage('Deploy') {
-            when {
-              expression {
-                currentBuild.result == null || currentBuild.result == 'SUCCESS' (1)
-              }
-            }
-            steps {
-                sh 'make publish'
-            }   
-    }
     }
 }
