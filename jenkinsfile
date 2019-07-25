@@ -18,4 +18,5 @@ pipeline {
                 sh 'make publish'
             }   
     }
+    }
 }
