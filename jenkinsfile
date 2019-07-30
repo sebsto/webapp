@@ -24,6 +24,7 @@ parameters {
         stage('Deploy') {
          steps {
                         sh "pwd && ls -la"
+                        
                         sh "sudo scp -i /Repo1/devops.pem ./target/*.war ec2-user@${params.tomcat_dev}:/opt/apache-tomcat-7.0.53/webapps"
                     }
                }
