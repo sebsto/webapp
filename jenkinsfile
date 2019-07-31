@@ -1,9 +1,7 @@
 pipeline {
     agent any
 parameters { 
-         string(name: 'tomcat_dev', defaultValue: '3.19.56.58', description: 'Staging Server')
-        
-        
+         string(name: 'tomcat_dev', defaultValue: '3.19.56.58', description: 'Staging Server') 
     } 
 
     triggers {
@@ -27,7 +25,6 @@ parameters {
         stage('Deploy') {
          steps {
                         sh "pwd && ls -la"
-                        
                         sh "sudo scp -i /Repo1/devops.pem ./target/*.war ec2-user@${params.tomcat_dev}:/opt/apache-tomcat-7.0.53/webapps"
                         
                     }
