@@ -1,2 +1,14 @@
 pipeline {
+        stages {
+              stage ('hello') {
+              steps {
+                    echo 'hello world'
+                    }
+                            }
+        stage('bye') {
+        steps{
+        echo 'bye tc'
+        }
+        }
+   
 }
