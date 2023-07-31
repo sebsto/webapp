@@ -29,6 +29,21 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+<distributionManagement>
+	    <repository>
+	      <id>nexus</id>
+	      <name>Sysmsify Technologies Releases Nexus Repository</name>
+	      <url>http://13.58.246.138:8081/repository/sysm-web-app-release/</url>
+	    </repository>
+	    
+	    <snapshotRepository>
+	      <id>nexus</id>
+	      <name>Sysmsify Technologies Snapshot Nexus Repository </name>
+	      <url>http://13.58.246.138:8081/repository/sysm-web-app-snapshot/</url>
+	    </snapshotRepository>
+	    
+	</distributionManagement>
+
   <build>
     <finalName>WebApp</finalName>
   </build>
